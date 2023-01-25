@@ -48,7 +48,7 @@
                         <td>{{ $receitaPagar->dueDate }}</td>
                         <td>{{ $receitaPagar->payDate }}</td>
                         <td><a href="{{ route('receita.edit', ['receitaPagar' => $receitaPagar]) }}"></a></td>
-                        <form id="form_{{ $pedido->id }}" method="post"
+                        <form id="form_{{ $ReceitaPagar->id }}" method="post"
                             action="{{ route('receita.destroy', ['ReceitaPagar' => $ReceitaPagar->id]) }}">
                             @method('DELETE')
                             @csrf
