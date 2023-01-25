@@ -27,7 +27,7 @@
                         <td>{{ $apiArrey['status'] }}</td>
                         <td>{{ $apiArrey['dueDate'] }}</td>
                         <td>{{ $apiArrey['payDate'] }}</td>
-                        <td><a href="{{ route('receita.edit', ['apiArrey' => $apiArrey]) }}"></a></td>
+                        <td><a href="{{ route('receita.edit', ['receitum' => $apiArrey['id']]) }}"></a></td>
                         <td>
                             <form id="form_{{ $apiArrey->id }}" method="post"
                                 action="{{ route('receita.destroy', ['receitum' => $apiArrey['id']]) }}">
@@ -47,9 +47,9 @@
                         <td>{{ $receitaPagar->status }}</td>
                         <td>{{ $receitaPagar->dueDate }}</td>
                         <td>{{ $receitaPagar->payDate }}</td>
-                        <td><a href="{{ route('receita.edit', ['receitaPagar' => $receitaPagar]) }}"></a></td>
+                        <td><a href="{{ route('receita.edit', ['receitum' => $receitaPagar->id]) }}"></a></td>
                         <form id="form_{{ $ReceitaPagar->id }}" method="post"
-                            action="{{ route('receita.destroy', ['ReceitaPagar' => $ReceitaPagar->id]) }}">
+                            action="{{ route('receita.destroy', ['receitum' => $ReceitaPagar->id]) }}">
                             @method('DELETE')
                             @csrf
                             <a href="#"
