@@ -27,9 +27,9 @@
                         <td>{{ $apiArrey['status'] }}</td>
                         <td>{{ $apiArrey['dueDate'] }}</td>
                         <td>{{ $apiArrey['payDate'] }}</td>
-                        <td><a href="{{ route('receita.edit', ['receitum' => $apiArrey['id']]) }}"></a></td>
+                        <td><a href="{{ route('receita.edit', ['receitum' => $apiArrey['id']]) }}">editar</a></td>
                         <td>
-                            <form id="form_{{ $apiArrey->id }}" method="post"
+                            <form id="form_{{ $apiArrey['id'] }}" method="post"
                                 action="{{ route('receita.destroy', ['receitum' => $apiArrey['id']]) }}">
                                 @method('DELETE')
                                 @csrf
@@ -47,14 +47,15 @@
                         <td>{{ $receitaPagar->status }}</td>
                         <td>{{ $receitaPagar->dueDate }}</td>
                         <td>{{ $receitaPagar->payDate }}</td>
-                        <td><a href="{{ route('receita.edit', ['receitum' => $receitaPagar->id]) }}"></a></td>
-                        <form id="form_{{ $ReceitaPagar->id }}" method="post"
-                            action="{{ route('receita.destroy', ['receitum' => $ReceitaPagar->id]) }}">
-                            @method('DELETE')
-                            @csrf
-                            <a href="#"
-                                onclick="document.getElementById('form_{{ $ReceitaPagar->id }}').submit()">Excluir</a>
-                        </form>
+                        <td><a href="{{ route('receita.edit', ['receitum' => $receitaPagar->id]) }}">editar</a></td>
+                        <td>
+                            <form id="form_{{ $receitaPagar->id }}" method="post"
+                                action="{{ route('receita.destroy', ['receitum' => $receitaPagar->id]) }}">
+                                @method('DELETE')
+                                @csrf
+                                <a href="#"onclick="document.getElementById('form_{{ $receitaPagar->id }}').submit()">Excluir</a>
+                            </form>
+                        </td>
                 @endforeach
 
 

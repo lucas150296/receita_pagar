@@ -43,7 +43,7 @@ class ReceitarPagarController extends Controller
      */
     public function store(Request $request)
     {
-        $regas = [
+        $regras = [
             'description' => 'required|min:3|max:2000',
             'clientName' => 'required|min:3|max:50',
             'value' => 'required|integer',
@@ -63,7 +63,7 @@ class ReceitarPagarController extends Controller
 
         $request->validate($regras, $feedback);
 
-        $ReceitaPagar::create($request->all());
+        ReceitaPagar::create($request->all());
 
         return redirect()->route('principal');
     }
@@ -87,7 +87,7 @@ class ReceitarPagarController extends Controller
      */
     public function edit(ReceitaPagar $receitaPagar  )
     {
-        return view('receitaPagar.edit', ['receitaPagar' => $receitaPagar]);
+        return view('receitaPagar.edit', ['titulo' => 'editar', 'receitaPagar' => $receitaPagar]);
     }
 
     /**
@@ -99,7 +99,7 @@ class ReceitarPagarController extends Controller
      */
     public function update(Request $request, ReceitaPagar $receitaPagar)
     {
-        $regas = [
+        $regras = [
             'description' => 'required|min:3|max:2000',
             'clientName' => 'required|min:3|max:50',
             'value' => 'required|integer',
